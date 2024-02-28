@@ -1,0 +1,46 @@
+name: CI
+
+on: push
+
+jobs:
+  macos_latest:
+    name: macos-latest
+    runs-on: macos-latest
+    timeout-minutes: 10
+    steps:
+      - name: List devices
+        run: xcrun simctl list devices available "iPhone"
+
+      - name: Start simulator
+        run: |
+          SIMULATOR_ID=$(xcrun simctl list devices available "iPhone SE" | grep "iOS 17.2" -A2 | grep -E -m1 "iPhone SE .* \(.{36}\) \(Shutdown\)" | sed -E 's:.*\((.{36})\).*:\1:')
+          xcrun simctl boot $SIMULATOR_ID
+          xcrun simctl bootstatus $SIMULATOR_ID
+
+  macos_13:
+    name: macos-13
+    runs-on: macos-13
+    timeout-minutes: 10
+    steps:
+      - name: List devices
+        run: xcrun simctl list devices available "iPhone"
+
+      - name: Start simulator
+        run: |
+          SIMULATOR_ID=$(xcrun simctl list devices available "iPhone SE" | grep "iOS 17.2" -A2 | grep -E -m1 "iPhone SE .* \(.{36}\) \(Shutdown\)" | sed -E 's:.*\((.{36})\).*:\1:')
+          xcrun simctl boot $SIMULATOR_ID
+          xcrun simctl bootstatus $SIMULATOR_ID
+
+  macos_14:
+    name: macos-14
+    runs-on: macos-14
+    timeout-minutes: 10
+    steps:
+      - name: List devices
+        run: xcrun simctl list devices available "iPhone"
+
+      - name: Start simulator
+        run: |
+          SIMULATOR_ID=$(xcrun simctl list devices available "iPhone SE" | grep "iOS 17.2" -A2 | grep -E -m1 "iPhone SE .* \(.{36}\) \(Shutdown\)" | sed -E 's:.*\((.{36})\).*:\1:')
+          xcrun simctl boot $SIMULATOR_ID
+          xcrun simctl bootstatus $SIMULATOR_ID
