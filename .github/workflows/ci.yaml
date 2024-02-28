@@ -13,7 +13,7 @@ jobs:
 
       - name: Start simulator
         run: |
-          SIMULATOR_ID=$(xcrun simctl list devices available "iPhone SE" | grep "iOS 17.2" -A2 | grep -E -m1 "iPhone SE .* \(.{36}\) \(Shutdown\)" | sed -E 's:.*\((.{36})\).*:\1:')
+          SIMULATOR_ID=$(xcrun simctl list devices available "iPhone SE" | grep -E -m1 "iPhone SE .* \(.{36}\) \(Shutdown\)" | sed -E 's:.*\((.{36})\).*:\1:')
           xcrun simctl boot $SIMULATOR_ID
           xcrun simctl bootstatus $SIMULATOR_ID
 
@@ -27,7 +27,7 @@ jobs:
 
       - name: Start simulator
         run: |
-          SIMULATOR_ID=$(xcrun simctl list devices available "iPhone SE" | grep "iOS 17.2" -A2 | grep -E -m1 "iPhone SE .* \(.{36}\) \(Shutdown\)" | sed -E 's:.*\((.{36})\).*:\1:')
+          SIMULATOR_ID=$(xcrun simctl list devices available "iPhone SE" | grep -E -m1 "iPhone SE .* \(.{36}\) \(Shutdown\)" | sed -E 's:.*\((.{36})\).*:\1:')
           xcrun simctl boot $SIMULATOR_ID
           xcrun simctl bootstatus $SIMULATOR_ID
 
@@ -41,6 +41,6 @@ jobs:
 
       - name: Start simulator
         run: |
-          SIMULATOR_ID=$(xcrun simctl list devices available "iPhone SE" | grep "iOS 17.2" -A2 | grep -E -m1 "iPhone SE .* \(.{36}\) \(Shutdown\)" | sed -E 's:.*\((.{36})\).*:\1:')
+          SIMULATOR_ID=$(xcrun simctl list devices available "iPhone SE" | grep -E -m1 "iPhone SE .* \(.{36}\) \(Shutdown\)" | sed -E 's:.*\((.{36})\).*:\1:')
           xcrun simctl boot $SIMULATOR_ID
           xcrun simctl bootstatus $SIMULATOR_ID
